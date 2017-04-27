@@ -73,4 +73,27 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return employee;
 	}
 
+	public void deleteEmployeebyEmpId(int empId) {
+		String insertQuery = "DELETE FROM SOUROTB WHERE EMPID=?";
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement prepstmt = connection
+					.prepareStatement(insertQuery);
+			prepstmt.setInt(1, empId);
+			prepstmt.executeUpdate();
+			prepstmt.close();
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException ex) {
+					System.out.println(ex.getMessage());
+				}
+			}
+		}
+	}
+
 }

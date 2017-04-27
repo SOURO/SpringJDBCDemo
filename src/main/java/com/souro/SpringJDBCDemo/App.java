@@ -22,5 +22,6 @@ public class App
         Employee emp = employeeDao.getEmployeebyEmpId(3);
         System.out.println("Employee ID: " + emp.getEmpId() + " Employee Name: " + emp.getName());
         
+        employeeDao.deleteEmployeebyEmpId(3);
     }
 }
