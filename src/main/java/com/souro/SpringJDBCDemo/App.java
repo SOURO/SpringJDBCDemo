@@ -11,7 +11,8 @@ public class App
 {
     public static void main( String[] args )
     {
-    	ApplicationContext context = new ClassPathXmlApplicationContext("Spring-App-Config.xml");
+    	@SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-App-Config.xml");
     	 
         EmployeeDao employeeDao = (EmployeeDao) context.getBean("employeeDao");
         Employee employee = new Employee();
